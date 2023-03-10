@@ -25,6 +25,14 @@
             var result = leapYear.IsLeapYear(4);
             Assert.IsTrue(result);
         }
+
+        [Test]
+        public void test_if_year_is_not_leap_year_if_is_not_divisible_by_4()
+        {
+            var leapYear = new LeapYear();
+            var result = leapYear.IsLeapYear(5);
+            Assert.IsFalse(result);
+        }
     }
 
     public class LeapYear
@@ -40,7 +48,12 @@
             {
                 return false;
             }
-            return true;
+
+            if (year % 4 == 0 && year % 100 > 0)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }
