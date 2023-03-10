@@ -1,4 +1,6 @@
-﻿namespace LeapYearTdd.Test
+﻿using LeapYearTdd.Console;
+
+namespace LeapYearTdd.Test
 {
     public class LeapYearTest
     {
@@ -40,38 +42,6 @@
             var leapYear = new LeapYear();
             var result = leapYear.IsLeapYear(0);
             Assert.IsFalse(result);
-        }
-    }
-
-    public class LeapYear
-    {
-        public bool IsLeapYear(int year)
-        {
-            if (year == 0)
-            {
-                return false;
-            }
-            if (year % 400 == 0)
-            {
-                return true;
-            }
-
-            if (year % 100 == 0 && year % 400 > 0)
-            {
-                return false;
-            }
-
-            if (year % 4 == 0 && year % 100 > 0)
-            {
-                return true;
-            }
-
-            if (year % 4 > 0)
-            {
-                return false;
-            }
-
-            return false;
         }
     }
 }
