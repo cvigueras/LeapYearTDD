@@ -33,12 +33,24 @@
             var result = leapYear.IsLeapYear(5);
             Assert.IsFalse(result);
         }
+
+        [Test]
+        public void test_if_year_is_not_leap_year_if_value_is_zero()
+        {
+            var leapYear = new LeapYear();
+            var result = leapYear.IsLeapYear(0);
+            Assert.IsFalse(result);
+        }
     }
 
     public class LeapYear
     {
         public bool IsLeapYear(int year)
         {
+            if (year == 0)
+            {
+                return false;
+            }
             if (year % 400 == 0)
             {
                 return true;
@@ -53,6 +65,12 @@
             {
                 return true;
             }
+
+            if (year % 4 > 0)
+            {
+                return false;
+            }
+
             return false;
         }
     }
